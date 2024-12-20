@@ -1,31 +1,45 @@
-# notepad-server MCP Server
+# 📝 notepad-server MCP Server
 
-A Model Context Protocol server
+[中文版](README_zh-CN.md)
 
-This is a TypeScript-based MCP server that implements a simple notes system. It demonstrates core MCP concepts by providing:
+🤖 A Model Context Protocol server
 
-- Resources representing text notes with URIs and metadata
+🛠️ This project implements a simple notes system and demonstrates core MCP concepts by providing:
+
 - Tools for creating new notes
 - Prompts for generating summaries of notes
 
-## Features
+## 🌟 Features
 
-### Resources
-- List and access notes via `note://` URIs
-- Each note has a title, content and metadata
-- Plain text mime type for simple content access
+## 🛠️ Tools
 
-### Tools
-- `create_note` - Create new text notes
-  - Takes title and content as required parameters
-  - Stores note in server state
+### `addNotepad`
+- **Description**: Add a new notepad
+- **Parameters**:
+  - `name` (string): Name of the notepad
+  - `content` (string): Content of the notepad
 
-### Prompts
-- `summarize_notes` - Generate a summary of all stored notes
-  - Includes all note contents as embedded resources
-  - Returns structured prompt for LLM summarization
+### `delNotepad`
+- **Description**: Delete a notepad
+- **Parameters**:
+  - `id` (number): ID of the notepad to delete
 
-## Development
+### `updateNotepad`
+- **Description**: Update a notepad
+- **Parameters**:
+  - `id` (number): ID of the notepad to update
+  - `content` (string): New content for the notepad
+
+### `listNotepads`
+- **Description**: List all notepads
+- **Parameters**: None
+
+### `useNotepad`
+- **Description**: Use a specific notepad
+- **Parameters**:
+  - `id` (number): ID of the notepad to use
+
+## 🛠️ Development
 
 Install dependencies:
 ```bash
@@ -42,7 +56,7 @@ For development with auto-rebuild:
 npm run watch
 ```
 
-## Installation
+## 📥 Installation
 
 To use with Claude Desktop, add the server config:
 
@@ -59,7 +73,7 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 }
 ```
 
-### Debugging
+### 🔍 Debugging
 
 Since MCP servers communicate over stdio, debugging can be challenging. We recommend using the [MCP Inspector](https://github.com/modelcontextprotocol/inspector), which is available as a package script:
 
